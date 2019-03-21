@@ -10,22 +10,23 @@ class Dotapp extends StatefulWidget {
 
 
 class _dotapp extends State<Dotapp> {
+  String _i="";
   void find(arrive) {
   var ran = new Random();
   var num = ran.nextInt(9);
   if (num == arrive) {
     print("dot found");
-    setState(){
-      i="dot found";
-    }
+    setState((){
+      _i="dot found";
+    });
   } else {
     print("dot not found. it is in $num");
-    setState(){
-      i="dot not found. try again";
-    }
+    setState((){
+      _i="dot not found. try again";
+    });
   }
 }
-String i="Start by tapping the box.";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,7 +38,7 @@ String i="Start by tapping the box.";
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text("Are you lucky enough. Press on the boxes to check!"),
-            Text(i),
+            Text("$_i"),
             Container(
               alignment: Alignment(0.0, 0.0),
               child: Container(
